@@ -1,0 +1,9 @@
+
+h1.text-center {
+    animation: bounce 2s infinite alternate; /* Agrega una animación al título */
+}
+/* Animación de rebote titulo */
+@keyframes bounce {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50px); }
+}
