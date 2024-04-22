@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Autor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Eliminar Autor</h1>
+
+        <a href="{{ url_for('crearAutor') }}" class="btn btn-primary" role="button">Crear</a>
+       
+        <form action="{{ url_for('eliminarAutor') }}" method="post">
+            <br><br>
+            <!-- Fila para alinear horizontalmente el ComboBox y el botón -->
+            <div class="row align-items-end">
+                <!-- Columna para el ComboBox -->
+                <div class="col-md-4">
+                    <strong><label for="idautor" class="form-label">ID autor</label></strong>
+                    <select id="idautor" name="idautor" class="form-select" required>
+                        <option selected disabled value="">Seleccione...</option>
+                        {% for autor in autores %}
+                        <option value="{{ autor[0] }}">{{ autor[0] }}    {{ autor[1] }} {{ autor[2] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="col-md-auto">
+                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                </div>
+            </div>
+        </form>
+
+        <br><br>
+        {% if resultado %}
+            <p>Autor eliminado: {{ resultado }}</p>   
+        {% endif %}
+    </div>
+</body>
+</html>
