@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>ReAdMaster</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .main-content {
+            min-height: calc(100vh - 112px);
+        }
+        .center-text {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <header class="bg-info text-white p-4 center-text">
+            <h1>Bienvenido a ReAdMaster</h1>
+            <p>Leer es soñar con los ojos abiertos.</p>
+        </header>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <a href="{{ url_for('registrar_Libro') }}" class="btn btn-primary btn-lg" role="button">Crear Libros</a>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <a href="{{ url_for('crearAutor') }}" class="btn btn-primary btn-lg" role="button">Crear Autores</a>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <a href="{{ url_for('registrar_Editorial') }}" class="btn btn-primary btn-lg" role="button">Crear Editorial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white p-4 text-center">
+        <p>&copy; 2024 ReAdMaster. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

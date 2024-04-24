@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Libro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Eliminar Libro</h1>
+
+        <a href="{{ url_for('registrar_Libro') }}" class="btn btn-primary" role="button">Crear</a>
+        
+        <br><br>
+        <form action="/eliminarLibro" method="post" class="needs-validation" novalidate>
+            <!-- Fila para alinear horizontalmente el ComboBox y el botón -->
+            <div class="row align-items-end">
+                <!-- Columna para el ComboBox -->
+                <div class="col-md-4">
+                    <label for="idlibro" class="form-label">ID libro</label>
+                    <select id="idlibro" name="idlibro" class="form-select" required>
+                        <option selected disabled value="">Seleccione...</option>
+                        {% for libro in libros %}
+                        <option value=" {{ libro[0] }}">{{ libro[0] }}    {{ libro[4] }}  </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="col-md-auto">
+                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                </div>
+            </div>
+            <br><br>
+            {% if resultado %}
+        <p>Libro eliminado: {{resultado}}</p>   
+        {% endif %}
+
+        </form>
+
+        
+    </div>
+</body>
+</html>
